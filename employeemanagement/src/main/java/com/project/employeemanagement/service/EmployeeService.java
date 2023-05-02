@@ -53,18 +53,18 @@ public class EmployeeService {
 			}
 			month++;
 			int days = 30 - emp.getDoj().getDay();
-			taxAmount = calculateTax(month*emp.getSalary()+days/30*emp.getSalary());
-			cessAmount = calculateCess(month*emp.getSalary()+days/30*emp.getSalary());
-			
+			taxAmount = calculateTax(month * emp.getSalary() + days / 30 * emp.getSalary());
+			cessAmount = calculateCess(month * emp.getSalary() + days / 30 * emp.getSalary());
+
 		}
 		annualSalary = emp.getSalary() * 12;
-        employeeModel.setAnnualSalary(annualSalary);
-        employeeModel.setCessAmount(cessAmount);
-        employeeModel.setTaxAmount(taxAmount);
-        employeeModel.setEmployeeId(emp.getEmployeeId());
-        employeeModel.setFirstName(emp.getFirstName());
-        employeeModel.setLastName(emp.getLastName());
-        
+		employeeModel.setAnnualSalary(annualSalary);
+		employeeModel.setCessAmount(cessAmount);
+		employeeModel.setTaxAmount(taxAmount);
+		employeeModel.setEmployeeId(emp.getEmployeeId());
+		employeeModel.setFirstName(emp.getFirstName());
+		employeeModel.setLastName(emp.getLastName());
+
 		return employeeModel;
 	}
 
@@ -83,7 +83,8 @@ public class EmployeeService {
 	}
 
 	private double calculateCess(double salary) {
-
-		return (salary * 2) / 100;
+		if (salary > 2500000)
+			return (salary * 2) / 100;
+		return 0;
 	}
 }
