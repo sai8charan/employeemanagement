@@ -2,9 +2,9 @@ package com.project.employeemanagement.model;
 
 import java.util.Date;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,7 +15,9 @@ import lombok.NoArgsConstructor;
 public class Employee {
 
 	private int employeeId;
+	@NotNull
 	private String firstName;
+	@NotNull
 	private String lastName;
 	@NotEmpty(message = "Email cannot be empty")
 	@Email(message = "Invalid email")
@@ -23,4 +25,7 @@ public class Employee {
 	private String phoneNumber;
 	private Date doj;
 	private double salary;
-}
+	private double annualSalary;
+	private double cessAmount;
+	private double taxAmount;
+}           		
