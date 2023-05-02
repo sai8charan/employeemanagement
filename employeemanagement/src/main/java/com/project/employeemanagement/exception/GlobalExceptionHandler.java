@@ -12,7 +12,6 @@ public class GlobalExceptionHandler{
 	public ResponseEntity<ExceptionPayLoad> handleInvalidInputException(Exception e) {
 		HttpStatus badrequest = HttpStatus.INTERNAL_SERVER_ERROR;
 		ExceptionPayLoad payload = new ExceptionPayLoad(500, e.getMessage());
-
 		return new ResponseEntity<>(payload, badrequest);
 	}
 	
